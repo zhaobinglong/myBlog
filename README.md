@@ -49,6 +49,18 @@ run代表要执行的命令，一个任务中，可能执行多个命令。当de
 ```
 ### 添加deploy_key
 
+``` yaml
+# 在命令行执行
+ssh-keygen -t rsa -b 4096 -C "$(git config user.email)" -f gh-pages -N ""
+# 你会得到两个文件:
+#   gh-pages.pub (public key)
+#   gh-pages     (private key)
+```
+接着, 打开仓库设置页面
+
+点击Deploy Keys，添加public key，同时勾选Allow write access
+
+点击Secrets，添加private key，命名为ACTIONS_DEPLOY_KEY
 
 ### Action市场
 很多项目的部署命令都是类似的，完全没必要从头写。github也发现了这个问题，所以提供了Action市场。每个人可以贡献自己写的Action，当然也可以去use别人的action，比如有一个peaceiris/actions-gh-pages@v3的action，去引用它
