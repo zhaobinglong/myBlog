@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>DDEX的Hydro协议 | 卡卡的自留地</title>
+    <meta name="generator" content="VuePress 1.4.1">
+    <link,[object Object] 0="meta" 1="[object Object]"></link,[object Object]>
+    <meta name="description" content="blog">
+    <link rel="preload" href="/assets/css/0.styles.1b5c6595.css" as="style"><link rel="preload" href="/assets/js/app.4ef49504.js" as="script"><link rel="preload" href="/assets/js/2.1465c094.js" as="script"><link rel="preload" href="/assets/js/10.1c1e147c.js" as="script"><link rel="prefetch" href="/assets/js/11.1778062b.js"><link rel="prefetch" href="/assets/js/12.7537f602.js"><link rel="prefetch" href="/assets/js/13.2adcf7b7.js"><link rel="prefetch" href="/assets/js/3.fd94b379.js"><link rel="prefetch" href="/assets/js/4.b7e6892f.js"><link rel="prefetch" href="/assets/js/5.5d7d3e32.js"><link rel="prefetch" href="/assets/js/6.9a2fc550.js"><link rel="prefetch" href="/assets/js/7.3b1e765a.js"><link rel="prefetch" href="/assets/js/8.9ff45088.js"><link rel="prefetch" href="/assets/js/9.28056274.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.1b5c6595.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">卡卡的自留地</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  博客
+</a></div><div class="nav-item"><a href="/flutter/" class="nav-link">
+  前端
+</a></div><div class="nav-item"><a href="/flutter/" class="nav-link">
+  flutter
+</a></div><div class="nav-item"><a href="/flutter/" class="nav-link">
+  机器学习
+</a></div><div class="nav-item"><a href="https://github.com/zhaobinglong/myBlog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  博客
+</a></div><div class="nav-item"><a href="/flutter/" class="nav-link">
+  前端
+</a></div><div class="nav-item"><a href="/flutter/" class="nav-link">
+  flutter
+</a></div><div class="nav-item"><a href="/flutter/" class="nav-link">
+  机器学习
+</a></div><div class="nav-item"><a href="https://github.com/zhaobinglong/myBlog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/" class="sidebar-link">基于githubAction自动部署vuepress项目到github pages</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="ddex的hydro协议"><a href="#ddex的hydro协议" class="header-anchor">#</a> DDEX的Hydro协议</h1> <p>经过简单分析，DDEX协议有两部分组成：</p> <ul><li><a href="https://etherscan.io/address/0xe2a0bfe759e2a4444442da5064ec549616fff101" target="_blank" rel="noopener noreferrer">Hybrid Exchange<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://etherscan.io/address/0x74622073a4821dbfd046e9aa2ccf691341a076e1" target="_blank" rel="noopener noreferrer">Proxy<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul> <h2 id="hybrid-excange"><a href="#hybrid-excange" class="header-anchor">#</a> Hybrid Excange</h2> <p>该部分主要实现Hydro协议功能，包括但不限于以下功能:</p> <ul><li>EIP712</li> <li>签名验证</li> <li>订单</li> <li>Relayer</li> <li>折扣</li> <li>Exchange</li></ul> <h3 id="eip712"><a href="#eip712" class="header-anchor">#</a> EIP712</h3> <p>计算EIP712哈希值, 即根据订单数据计算它的EIP712的哈希值。
+需要注意的是，得到的这个哈希值需要用私钥签名，并将签名后得到的vrs，和订单一并发送给Relayer，才能进行交易。
+在签名验证环节会根据订单数据和vrs来验证该订单是否为原交易订单（没有被改动过）。<br>
+只要私钥保存好，不被其他第三方拿到，我们就不需要担心有人篡改订单。
+订单数据中任何一个bit位被改动，都会导致得到的EIP712哈希值变动，最终导致签名验证失败。
+换句话说，就是篡改过的订单和签名vrs验证得到的交易账户和订单中的交易账户不一致，签名验证失败。</p> <h3 id="签名验证"><a href="#签名验证" class="header-anchor">#</a> 签名验证</h3> <p>正如EIP712所讲，签名验证过程就是根据订单数据生成EIP712哈希值，然后根据与订单一起发来的vrs经计算可以得到交易用户的账户，然后用该账户和原订单中国的交易账户作比较，如果一致，则订单没有被改动过，否则改订单就被篡改过。<br>
+签名验证还支持另外一种签名方式，即ether.sign，其实和EIP712一样，只是多了一次ethereum的结构哈希。其它完全一样。这个方便我们直接用ether.sign进行签名。</p> <h3 id="订单"><a href="#订单" class="header-anchor">#</a> 订单</h3> <p>集合了对订单的操作。包括获取订单hash值（EIP712）、版本、有效时间、买卖单、费率等信息</p> <h3 id="relayer"><a href="#relayer" class="header-anchor">#</a> Relayer</h3> <p>Relayer的操作。relayer是否加入激励系统，会影响交易用户的费率。这个点很有意思，可以说DDEX比较支持个人或者其他组织加入进来，这应该也能促进DDEX线下撮合的速度。<br>
+另外一点是为Relayer提供了一个代理功能，即允许Relayer通过智能合约向Exchange提交撮合成功的订单。</p> <h3 id="折扣"><a href="#折扣" class="header-anchor">#</a> 折扣</h3> <p>即费率的折扣。Hydro的一套折扣计算方式，简单讲就是根据交易用户手中持有的HOT数量对费率进行打折，持有HOT越多，折扣力度越大，默认最大应该可以打6折。
+费率折扣是可以随时设置的，合约的创建者拥有修改该权限。<br>
+这里有个有意思的设定，即如果Relayer没有加入激励系统，那不论交易方持有多少HOT，都不会打折的，这可能是激励更多的人持有HOT，并通过加入激励系统的Relayer进行交易。</p> <h3 id="exchange"><a href="#exchange" class="header-anchor">#</a> Exchange</h3> <p>这是整个Hydro的核心入口，通过该部分提供的接口，Relayer向Exchange提交撮合成功的订单。<br>
+这部分比较庞大，简单来说就是：<br>
+Relayer提交订单--&gt;Hydro验证订单（包括签名和价格）--&gt;Hydro计算费率--&gt;Hydro修改各个订单的匹配额度--&gt;最终转账交易token和报价token/ether。<br>
+其中修改订单匹配额度是指在以太坊上记录每个订单的已经匹配的token数目，防止同一个订单多次匹配造成的超额。</p> <h2 id="proxy"><a href="#proxy" class="header-anchor">#</a> Proxy</h2> <p>代理是DDEX在Hydro的基础上修改出来的一个功能，主要包含两个部分:</p> <ul><li>白名单机制</li> <li>代理功能</li></ul> <h3 id="白名单机制"><a href="#白名单机制" class="header-anchor">#</a> 白名单机制</h3> <p>这是一个很有趣的机制，经常接触以太坊的都知道，要想对某账户中ERC20类的Token进行转账，必须拥有该账户或者获取该账户的授权。
+从上面Hybrid Exchange部分，可以看到，交易的最后一步是完成转账，而完成转账的部分必定是需要合约来代理完成的，否则是不能成功转账Token的。
+在DDEX上进行交易之前，所有交易者都必须对DDEX的Proxy进行授权，而授权的额度貌似是个极大值（待确认），这样Proxy协议就可以转账交易者账户中的token了。<br>
+而能操作Proxy协议的，只有白名单才可以，所以Hybrid Exchange要想完成交易，必定是要被加入白名单的。当然，从Proxy协议也可以看到，白名单管理是由Owner（也就是合约的创建者）控制的, Owner已经将Hybrid Exchange加入了白名单。</p> <p>值得注意的是，Hydro Protocol的原协议是没有白名单机制的，它的代理就是Hydro Protocol本身，交易者只需给Hydro Protocol授权一定的额度即可（通常是授权一个极大值）。也可以理解成Hydro Protocol原协议有且仅有一个代理，就是它本身。</p> <h3 id="代理功能"><a href="#代理功能" class="header-anchor">#</a> 代理功能</h3> <p>代理功能即完成所有交易账户的转账操作，包括以太币和所有符合ERC20的Token。正如上面所述，只有白名单才能操作该代理功能。</p> <h2 id="总结"><a href="#总结" class="header-anchor">#</a> 总结</h2> <p>总结下DDEX的交易流程<br>
+交易方（用户）对交易订单进行签名 ---&gt; 将订单和签名发送给Relayer ---&gt; Relayer收集订单并线下撮合 ---&gt; 将符合价格规则的订单发送给HybridExchange ---&gt; HybrideExchange验证签名、价格、有效期等信息 ---&gt; 计算费率 ---&gt; 更新订单匹配额 ---&gt; 通过Proxy代理完成最终转账。</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.4ef49504.js" defer></script><script src="/assets/js/2.1465c094.js" defer></script><script src="/assets/js/10.1c1e147c.js" defer></script>
+  </body>
+</html>

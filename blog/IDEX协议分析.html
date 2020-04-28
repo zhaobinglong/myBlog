@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>IDEX协议分析 | 卡卡的自留地</title>
+    <meta name="generator" content="VuePress 1.4.1">
+    <link,[object Object] 0="meta" 1="[object Object]"></link,[object Object]>
+    <meta name="description" content="blog">
+    <link rel="preload" href="/assets/css/0.styles.1b5c6595.css" as="style"><link rel="preload" href="/assets/js/app.4ef49504.js" as="script"><link rel="preload" href="/assets/js/2.1465c094.js" as="script"><link rel="preload" href="/assets/js/7.3b1e765a.js" as="script"><link rel="prefetch" href="/assets/js/10.1c1e147c.js"><link rel="prefetch" href="/assets/js/11.1778062b.js"><link rel="prefetch" href="/assets/js/12.7537f602.js"><link rel="prefetch" href="/assets/js/13.2adcf7b7.js"><link rel="prefetch" href="/assets/js/3.fd94b379.js"><link rel="prefetch" href="/assets/js/4.b7e6892f.js"><link rel="prefetch" href="/assets/js/5.5d7d3e32.js"><link rel="prefetch" href="/assets/js/6.9a2fc550.js"><link rel="prefetch" href="/assets/js/8.9ff45088.js"><link rel="prefetch" href="/assets/js/9.28056274.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.1b5c6595.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">卡卡的自留地</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  博客
+</a></div><div class="nav-item"><a href="/flutter/" class="nav-link">
+  前端
+</a></div><div class="nav-item"><a href="/flutter/" class="nav-link">
+  flutter
+</a></div><div class="nav-item"><a href="/flutter/" class="nav-link">
+  机器学习
+</a></div><div class="nav-item"><a href="https://github.com/zhaobinglong/myBlog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  博客
+</a></div><div class="nav-item"><a href="/flutter/" class="nav-link">
+  前端
+</a></div><div class="nav-item"><a href="/flutter/" class="nav-link">
+  flutter
+</a></div><div class="nav-item"><a href="/flutter/" class="nav-link">
+  机器学习
+</a></div><div class="nav-item"><a href="https://github.com/zhaobinglong/myBlog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/" class="sidebar-link">基于githubAction自动部署vuepress项目到github pages</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="idex协议分析"><a href="#idex协议分析" class="header-anchor">#</a> IDEX协议分析</h1> <p>传说中全球最火的交易所IDEX，当然也要分析一把。先上链接：<a href="https://etherscan.io/address/0x2a0c0DBEcC7E4D658f48E01e3fA353F44050c208" target="_blank" rel="noopener noreferrer">IDEX<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>。<br>
+相比比较复杂的Hydro合约，IDEX就比较简单粗暴了, IDEX只有一个合约Exchange。用户只需要将需要交易的Token或ether转入Exchange，然后发起挂单交易就可以了。Exchange会根据订单情况撮合交易。详细分析一下的话，IDEX知识点如下：</p> <ul><li>用户操作</li> <li>管理员操作</li></ul> <h2 id="用户操作"><a href="#用户操作" class="header-anchor">#</a> 用户操作</h2> <p>用户操作可以分为如下：</p> <ul><li>存款</li> <li>取款</li> <li>提交订单</li></ul> <h3 id="存款"><a href="#存款" class="header-anchor">#</a> 存款</h3> <p>存款即将Token/Ether存入Exchange，这些资金都在Exchange中，没有被盗的风险。</p> <h3 id="取款"><a href="#取款" class="header-anchor">#</a> 取款</h3> <p>取款即将Exchange中的Token/Ether取出来，只有在Exhange中有存款的账户才能取出不大于存款的资金。<br>
+需要注意的是，用户对Exchange最后一次操作的100000个块之后才能操作取款。按照以太坊平均15s一个块的速度，大约要17天（150w秒）之后才能主动取出资金。这个有点不能忍啊。当然如果想提前取款也不是不可以，参考下面管理员操作的取款。</p> <h3 id="提交订单"><a href="#提交订单" class="header-anchor">#</a> 提交订单</h3> <p>这些不体现在合约上，需要用户对订单签名之后，将订单和vrs值发送给IDEX服务器。</p> <h2 id="管理员操作"><a href="#管理员操作" class="header-anchor">#</a> 管理员操作</h2> <ul><li>取款</li> <li>交易</li></ul> <h3 id="取款-2"><a href="#取款-2" class="header-anchor">#</a> 取款</h3> <p>从用户操作的取款中，可以了解用户是不能主动提前取款的。IDEX设计了管理员取款的机制，管理员可以帮用户取款，管理员根据用户申请的额度进行相应的取款。<br>
+这里不用担心管理员会将Exchange中的资金取走，因为用户申请的取款信息包括取款额度和对应的签名，管理员也只能通过额度和签名才能将资金从Exchange转到用户账户中（也只能转到用户账户中）。当然，用了中间商，那中间商必定要薅一把羊毛的，管理员会每1ether(Token/Ether) 收取最高50 finney的手续费（1 ether = 1000 finney）。</p> <h3 id="交易"><a href="#交易" class="header-anchor">#</a> 交易</h3> <p>IDEX的交易也想当的简单粗暴，直接将签名的订单提交给Exchange就可以完成交易。当然这里是需要验证签名的，如果签名不正确，交易就不会成功。<br>
+同样，IDEX对买卖双方各收取不高于(100 finey/1 ether)的手续费。</p> <p><strong>问题：</strong>
+这里有个问题是Exchange并不会对买卖双方的价格进行验证，所以这里是存在人为的操作空间的，比如以极低且不符合Maker的价格去成交其订单（Maker即挂单一方）。</p> <h2 id="总结"><a href="#总结" class="header-anchor">#</a> 总结</h2> <p>IDEX相对于DDEX流程比较简单，如果没有最后一个问题的话，用户的资金将是非常安全的，但是正因为了有了最后一个问题，安全上与IDEX半斤八两。<br>
+从自由资金自由的角度上讲，DDEX不需要预先将资金转入代理，所以DDEX比IDEX有更好的资金流通性能。</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.4ef49504.js" defer></script><script src="/assets/js/2.1465c094.js" defer></script><script src="/assets/js/7.3b1e765a.js" defer></script>
+  </body>
+</html>
