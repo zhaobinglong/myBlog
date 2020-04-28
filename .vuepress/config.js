@@ -1,5 +1,6 @@
 module.exports = {
   title: '卡卡的自留地',
+  base: '/myBlog/',
   description:"blog",   // 描述
   keywords:"前端、后端、VUE、javascript、flutter",  // 关键字
   head:[   // 配置头部
